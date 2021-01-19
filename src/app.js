@@ -39,26 +39,26 @@ app.get('/help', (req, res) => {
   })
 });
 
-app.get('', (req, res) => {
-  res.send('<h1>Weather</h1>');
-});
-
-app.get('/help', (req, res) => {
-  res.send([{
-    name: 'Hai'
-  }, {
-    name: 'Cai'
-  }]);
-});
-
-app.get('/about', (req, res) => {
-  res.send('<h1>About</h1>');
-});
-
 app.get('/weather', (req, res) => {
   res.send({
     forecast: 'It is snowing',
     location: 'Philadelphia'
+  });
+});
+
+app.get('/help/*', (req, res) => {
+  res.send('404', {
+    title: '404',
+    name: 'Trieu Hai',
+    errorMessage: 'Help article not found!'
+  });
+});
+
+app.get('*', (req, res) => {
+  res.send('404', {
+    title: '404',
+    name: 'Trieu Hai',
+    errorMessage: 'Page not found'
   });
 });
 
